@@ -1,0 +1,33 @@
+version: '3'
+services:
+
+  redis-master:
+    image: redis:5.0.6
+    ports:
+      - "7000:6379"
+
+  redis-slave:
+    image: redis:5.0.6
+    command: redis-server --slaveof redis-master 6379
+    ports:
+      - "7001:6379"
+    links:
+      - redis-master
+
+  redis-sentinel:
+    build:
+      context: ./redis-sentinel
+    links:
+      - redis-master
+
+  redis-sentinel2:
+    build:
+      context: ./redis-sentinel
+    links:
+      - redis-master
+
+  redis-sentinel3:
+    build:
+      context: ./redis-sentinel
+    links:
+      - redis-master

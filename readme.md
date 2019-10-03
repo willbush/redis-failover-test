@@ -37,8 +37,6 @@ or `Ctrl-C` will stop the program.
 
 ## Trigger a Failover
 
-Connect a terminal to the container running the master instance.
-
 Initiate a failover by sending a command to master to sleep for 30 seconds:
 
 ```bash

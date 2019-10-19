@@ -124,7 +124,8 @@ why master went down in the first place.
   `IConnectionMultiplexer.ErrorMessage` event. However, that will only work if
   you're _not_ using `CommandFlags.FireAndForget`.
 
-- Don't expect the `StackExchange.Redis` connection retry settings to apply
+- Don't expect the `StackExchange.Redis` connection retry settings to apply to
+  `set` operations.
 
 I also did not realize until testing this and looking into it, that Redis
 sentinels have no built in way to fail-back to a preferred master.
